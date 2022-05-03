@@ -20,4 +20,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore -o build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: release
+        path: build
