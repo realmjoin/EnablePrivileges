@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore -r win10-x64
     - name: Publish
       run: dotnet publish -r win10-x64 -c Release -o build -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true --no-restore
     - name: Upload artifact
